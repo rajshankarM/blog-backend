@@ -9,8 +9,11 @@ app.use(cors());
 app.use(express.json());
 app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
+
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(
+    "mongodb+srv://rajshankar:14311135@cluster0.vd1o5.mongodb.net/Blog?retryWrites=true&w=majority"
+  )
   .then(() => app.listen(5000))
   .then(() => console.log("Connected to database😊"))
   .catch((err) => console.log(err));
