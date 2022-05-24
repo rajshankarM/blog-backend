@@ -13,7 +13,7 @@ app.use("/api/user", router);
 app.use("/api/blog", blogRouter);
 
 mongoose
-  .connect(process.env.MONGO_URL)
+  .connect(process.env.MONGO_URL || 5000)
   .then(() => app.listen(5000))
   .then(() => console.log("Connected to database😊"))
   .catch((err) => console.log(err));
